@@ -21,11 +21,13 @@ allprojects.each {project ->
 }
 
 nmp {
-    modName = project.name
-    modGroup = "com.github.template"                        // reconfigure it
-    modVersion = prop("modVersion")
-    mindustryVersion = prop("mindustryVersion")
-    generateModInfo = true
+    settings.configure {
+        modName.set project.name
+        modGroup.set "com.github.template"                  // reconfigure it
+        modVersion.set prop("modVersion")
+        mindustryVersion.set prop("mindustryVersion")
+        generateModInfo.set true
+    }
 
     genericInit()
 }
@@ -36,6 +38,4 @@ tasks.nmpGenerateModInfo {
     modAuthor = "u"                                         // reconfigure it
     modDescription = "MMP Template mod."                    // reconfigure it
     modRepo = "https://github.com/nekit508/mindustry-mod-plugin"
-
-    modMiscData
 }
