@@ -1,20 +1,24 @@
-plugins{
-    id "java"
+plugins {
     id "com.github.nekit508.mindustry-mod-plugin" version "$nmpVersion" apply true
 }
 
-project.repositories {
-    mavenCentral()
-    mavenLocal()
-    maven { url "https://raw.githubusercontent.com/Zelaux/MindustryRepo/master/repository" }
-    maven { url "https://www.jitpack.io" }
-}
+allprojects.each {project ->
+    project.repositories {
+        mavenCentral()
+        mavenLocal()
+        maven { url "https://raw.githubusercontent.com/Zelaux/MindustryRepo/master/repository" }
+        maven { url "https://www.jitpack.io" }
+    }
 
-repositories {
-    mavenCentral()
-}
+    project.repositories {
+        mavenCentral()
+    }
 
-sourceSets.main.java.srcDirs = ["src"]
+    project.apply plugin: "java"
+
+    project.sourceSets.main.java.srcDirs = ["src"]
+    project.sourceSets.main.resources.srcDirs = ["res"]
+}
 
 nmp {
     modName = project.name
