@@ -15,11 +15,18 @@ allprojects.each {project ->
     }
 
     project.apply plugin: "java"
+    project.apply plugin: "idea"
 
     project.sourceSets.main.java.srcDirs = ["src"]
     project.sourceSets.main.resources.srcDirs = ["res"]
 }
 
+nmp.core project, "core"
+core.settings {
+
+}
+
+/*
 nmp {
     settings.configure {
         modName.set project.name
@@ -39,3 +46,4 @@ tasks.nmpGenerateModInfo {
     modDescription = "MMP Template mod."                    // reconfigure it
     modRepo = "https://github.com/nekit508/mindustry-mod-plugin"
 }
+*/
