@@ -3,7 +3,6 @@
     "name": "mmp-template-mod",
     "version": "v0.0.4",
     "minGameVersion": "146",
-    "author": "u",
-    "description": "MMP Template mod.",
+    "author": "ntkiy508",
     "java": true
 }
