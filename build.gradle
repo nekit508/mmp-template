@@ -38,8 +38,8 @@ core.configure {
     genericInit()
 
     core.configureTasks {
-        nmpGenerateModInfo {
-            set(
+        nmpGenerateModInfo { task ->
+            task.set(
                     "main": "com.github.template.core.ModCore", // reconfigure it
                     "author": "nekit508"                        // reconfigure it
             )
