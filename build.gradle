@@ -39,8 +39,10 @@ core.configure {
 
     core.configureTasks {
         nmpGenerateModInfo {
-            modMain.set "com.github.template.core.ModCore"  // reconfigure it
-            modAuthor.set "nekit508" // reconfigure it
+            set(
+                    "main": "com.github.template.core.ModCore", // reconfigure it
+                    "author": "nekit508"                        // reconfigure it
+            )
         }
     }
 }
