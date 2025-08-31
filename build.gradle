@@ -47,3 +47,15 @@ core.configure {
     }
 }
 
+if (Boolean.parseBoolean(useEntityAnno)) {
+    nmp.entityAnno project, "eanno", core
+
+    eanno.settings {
+        genPackage.set "com.github.template.gen"
+        entityAnnoVersion.set prop("entityAnnoVersion") as String
+    }
+
+    eanno.configure {
+        genericInit()
+    }
+}
