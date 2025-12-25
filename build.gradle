@@ -17,27 +17,16 @@ allprojects.each {project ->
 
     project.apply plugin: "java"
     project.apply plugin: "idea"
-
-    project.sourceSets.main.java.srcDirs = ["src"]
-    project.sourceSets.main.resources.srcDirs = ["res"]
 }
 
 group = modGroup
 version = modVersion
 
 nmp.core project, "core"
-core.settings {
-    modName.set project.name
-    modGroup.set project.group as String
-    modVersion.set project.version as String
-    mindustryVersion.set prop("mindustryVersion") as String
-    generateModInfo.set true
-}
+nmp.entityAnno project, "eanno", core
 
-core.configure {
-    genericModInit()
-
-    core.configureTasks {
+core.with {
+    configureTasks {
         nmpGenerateModInfo {
             set(
                     "main": "com.github.template.core.ModCore", // reconfigure it
@@ -45,17 +34,17 @@ core.configure {
             )
         }
     }
-}
 
-if (Boolean.parseBoolean(useEntityAnno)) {
-    nmp.entityAnno project, "eanno", core
-
-    eanno.settings {
-        genPackage.set "com.github.template.gen"
-        entityAnnoVersion.set prop("entityAnnoVersion") as String
+    nmp.setting {
+        modVersion.set project.version as String
+        mindustryVersion.set prop("mindustryVersion") as String
     }
 
-    eanno.configure {
-        genericInit()
+}
+
+eanno.with {
+    nmp.setting {
+        genPackage.set "com.github.template.gen" // reconfigure it
+        entityAnnoVersion.set prop("entityAnnoVersion") as String
     }
 }

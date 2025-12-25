@@ -10,5 +10,5 @@
     ],
     "java": true,
     "name": "mmp-template",
-    "minGameVersion": 146
+    "minGameVersion": "152"
 }
