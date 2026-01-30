@@ -4,4 +4,4 @@
 .gradle/
 /fetchedComps/*
 
-settings/local.json
+**.local*
