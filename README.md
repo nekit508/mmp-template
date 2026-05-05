@@ -10,7 +10,7 @@ It's project template for mods based on my [mindustry mod plugin](https://github
 ### 1) All lines that commented with `reconfigure it` must be changed for your mod
 
 Current files list with this marks:
-- `settimgs.gradle`
+- `settings.gradle`
 - `build.gradle`
 - `gradle.properties`
 
